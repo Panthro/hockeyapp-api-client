@@ -6,4 +6,4 @@ language: node_js
 node_js:
   - "6"
 script:
-  - "generate_client.sh"
+  - "./update-clients.js"
