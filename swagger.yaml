@@ -54,6 +54,22 @@ paths:
                     platform:
                       type: string
                       enum: [iOS,Android,Mac Os,Windows Phone,Custom]
+  /apps/{appId}:
+    delete:
+      security:
+        - token: []
+      description: 'delete an existing app'
+      responses:
+        '400':
+          description: Bad request
+        '200':
+          description: Deleted
+      parameters:
+        - in: path
+          name: appId
+          description: the app id
+          required: true
+          type: string
   /apps/upload:
     post:
       security:

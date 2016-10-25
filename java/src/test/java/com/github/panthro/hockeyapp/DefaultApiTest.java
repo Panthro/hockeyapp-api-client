@@ -47,6 +47,22 @@ public class DefaultApiTest {
     /**
      * 
      *
+     * delete an existing app
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void appsAppIdDeleteTest() throws ApiException {
+        String appId = null;
+        // api.appsAppIdDelete(appId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * Gets &#x60;Apps&#x60;. 
      *
      * @throws ApiException

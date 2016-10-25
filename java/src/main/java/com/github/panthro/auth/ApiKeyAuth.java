@@ -30,7 +30,7 @@ import com.github.panthro.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-25T12:12:26.518Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-25T14:47:07.790Z")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;

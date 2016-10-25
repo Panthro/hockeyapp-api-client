@@ -4,9 +4,64 @@ All URIs are relative to *https://rink.hockeyapp.net/api/2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**appsAppIdDelete**](DefaultApi.md#appsAppIdDelete) | **DELETE** /apps/{appId} | 
 [**appsGet**](DefaultApi.md#appsGet) | **GET** /apps | 
 [**appsUploadPost**](DefaultApi.md#appsUploadPost) | **POST** /apps/upload | 
 
+
+<a name="appsAppIdDelete"></a>
+# **appsAppIdDelete**
+> appsAppIdDelete(appId)
+
+
+
+delete an existing app
+
+### Example
+```java
+// Import classes:
+//import com.github.panthro.ApiClient;
+//import com.github.panthro.ApiException;
+//import com.github.panthro.Configuration;
+//import com.github.panthro.auth.*;
+//import com.github.panthro.hockeyapp.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: token
+ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
+token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.setApiKeyPrefix("Token");
+
+DefaultApi apiInstance = new DefaultApi();
+String appId = "appId_example"; // String | the app id
+try {
+    apiInstance.appsAppIdDelete(appId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#appsAppIdDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **String**| the app id |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a name="appsGet"></a>
 # **appsGet**

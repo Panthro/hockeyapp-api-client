@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * Apps
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-25T12:12:26.518Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-25T14:47:07.790Z")
 public class Apps {
   @SerializedName("success")
   private String success = null;

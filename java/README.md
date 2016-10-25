@@ -78,11 +78,11 @@ public class DefaultApiExample {
         //token.setApiKeyPrefix("Token");
 
         DefaultApi apiInstance = new DefaultApi();
+        String appId = "appId_example"; // String | the app id
         try {
-            Apps result = apiInstance.appsGet();
-            System.out.println(result);
+            apiInstance.appsAppIdDelete(appId);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#appsGet");
+            System.err.println("Exception when calling DefaultApi#appsAppIdDelete");
             e.printStackTrace();
         }
     }
@@ -96,6 +96,7 @@ All URIs are relative to *https://rink.hockeyapp.net/api/2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**appsAppIdDelete**](docs/DefaultApi.md#appsAppIdDelete) | **DELETE** /apps/{appId} | 
 *DefaultApi* | [**appsGet**](docs/DefaultApi.md#appsGet) | **GET** /apps | 
 *DefaultApi* | [**appsUploadPost**](docs/DefaultApi.md#appsUploadPost) | **POST** /apps/upload | 
 

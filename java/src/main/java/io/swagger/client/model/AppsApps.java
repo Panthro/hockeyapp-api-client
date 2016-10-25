@@ -33,7 +33,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * AppsApps
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-25T12:12:26.518Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-25T14:47:07.790Z")
 public class AppsApps {
   @SerializedName("title")
   private String title = null;
