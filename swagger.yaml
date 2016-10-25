@@ -1,44 +1,29 @@
-# Example YAML to get you started quickly.
-# Be aware that YAML has indentation based scoping.
-# Code completion support is available so start typing for available options.
 swagger: '2.0'
-
-# This is your document metadata
 info:
-  version: "2"
+  version: "0.0.2"
   title: Hockeyapp Public API wrapper
 
 schemes: ["https"]
 host: rink.hockeyapp.net
 basePath: "/api/2"
-securityDefinitions:  
+securityDefinitions:
   token:
     type: apiKey
     name: X-HockeyAppToken
     in: header
-
-# Describe your paths here
 paths:
-  # This is a path endpoint. Change it.
   /apps:
-    # This is a HTTP operation
     get:
-      # Describe this verb here. Note: you can use markdown
-      security: 
+      security:
         - token: []
       description: |
         Gets `Apps`.
-      # This is array of GET operation parameters:
       parameters: []
-      # Expected responses for this operation:
       responses:
         400:
           description: Bad request
-        # Response code
         200:
           description: Successful response
-          # A schema describing your response object.
-          # Use JSON Schema format
           schema:
             title: Apps
             type: object
@@ -71,8 +56,7 @@ paths:
                       enum: [iOS,Android,Mac Os,Windows Phone,Custom]
   /apps/upload:
     post:
-      # Describe this verb here. Note: you can use markdown
-      security: 
+      security:
         - token: []
       description: 'Upload a new app'
       consumes:
@@ -85,7 +69,7 @@ paths:
         '201':
           description: Upload success
           schema:
-            title: App 
+            title: App
             type: object
             properties:
               title:
@@ -186,5 +170,3 @@ paths:
           name: repository_url
           description: set to your source repository
           type: string
-
-                    
