@@ -1,0 +1,229 @@
+---
+swagger: "2.0"
+info:
+  version: "0.0.2"
+  title: "Hockeyapp Public API wrapper"
+host: "rink.hockeyapp.net"
+basePath: "/api/2"
+schemes:
+- "https"
+paths:
+  /apps:
+    get:
+      description: "Gets `Apps`.\n"
+      parameters: []
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/Apps"
+        400:
+          description: "Bad request"
+      security:
+      - token: []
+      x-accepts: "application/json"
+      x-contentType: "application/json"
+  /apps/upload:
+    post:
+      description: "Upload a new app"
+      consumes:
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Ipa"
+        in: "formData"
+        description: "file data of the .ipa for iOS, .app.zip for OS X, or .apk file\
+          \ for Android"
+        required: true
+        type: "file"
+      - name: "dsym"
+        in: "formData"
+        description: "file data of the .dSYM.zip file (iOS and OS X) or mapping.txt\
+          \ (Android); note that the extension has to be .dsym.zip (case-insensitive)\
+          \ for iOS and OS X and the file name has to be mapping.txt for Android."
+        required: false
+        type: "file"
+      - name: "notes"
+        in: "formData"
+        description: "release notes as Textile or Markdown (after 5k characters note\
+          \ are truncated)"
+        required: false
+        type: "string"
+      - name: "notes_type"
+        in: "formData"
+        description: "type of release notes. `0` for Textile, `1` for Markdown"
+        required: false
+        type: "integer"
+        enum:
+        - null
+        - null
+      - name: "notify"
+        in: "formData"
+        description: "notify testers (can only be set with full-access tokens). `0`\
+          \ to not notify, `1` to notify all testers that can install this app,  `2`\
+          \ to notify all testers"
+        required: false
+        type: "integer"
+        enum:
+        - null
+        - null
+        - null
+      - name: "status"
+        in: "formData"
+        description: "download status (can only be set with full-access tokens). `1`\
+          \ to not allow users to download the version, `2` to make the version available\
+          \ for download"
+        required: false
+        type: "integer"
+        enum:
+        - null
+        - null
+        - null
+      - name: "strategy"
+        in: "formData"
+        description: "replace or add build with same build number. `add` to add the\
+          \ build as a new build to even if it has the same build number __default__,\
+          \ `replace` to replace to a build with the same build number"
+        required: false
+        type: "string"
+        enum:
+        - "add"
+        - "replace"
+      - name: "tags"
+        in: "formData"
+        description: "restrict download to comma-separated list of tags"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+      - name: "teams"
+        in: "formData"
+        description: "restrict download to comma-separated list of team IDs"
+        required: false
+        type: "array"
+        items:
+          type: "integer"
+        collectionFormat: "multi"
+      - name: "users"
+        in: "formData"
+        description: "restrict download to comma-separated list of user IDs"
+        required: false
+        type: "array"
+        items:
+          type: "integer"
+        collectionFormat: "multi"
+      - name: "mandatory"
+        in: "formData"
+        description: "set version as mandatory `0` for not mandatory __default__,\
+          \ `1` for mandatory"
+        required: false
+        type: "integer"
+        enum:
+        - null
+        - null
+      - name: "release_type"
+        in: "formData"
+        description: "set the release type of the app. `0` for beta __default__  `1`\
+          \ for store `2` for alpha `3` for enterprise"
+        required: false
+        type: "integer"
+        enum:
+        - null
+        - null
+        - null
+        - null
+      - name: "private"
+        in: "formData"
+        description: "set to `true` to enable the private download page (default is\
+          \ `true`)"
+        required: false
+        type: "boolean"
+      - name: "owner_id"
+        in: "formData"
+        description: "set to the ID of your organization"
+        required: false
+        type: "integer"
+      - name: "commit_sha"
+        in: "formData"
+        description: "set to the git commit sha for this build"
+        required: false
+        type: "string"
+      - name: "build_server_url"
+        in: "formData"
+        description: "set to the URL of the build job on your build server"
+        required: false
+        type: "string"
+      - name: "repository_url"
+        in: "formData"
+        description: "set to your source repository"
+        required: false
+        type: "string"
+      responses:
+        201:
+          description: "Upload success"
+          schema:
+            $ref: "#/definitions/App"
+        400:
+          description: "Bad request"
+      security:
+      - token: []
+      x-accepts: "application/json"
+      x-contentType: "multipart/form-data"
+securityDefinitions:
+  token:
+    type: "apiKey"
+    name: "X-HockeyAppToken"
+    in: "header"
+definitions:
+  App:
+    properties:
+      title:
+        type: "string"
+      bundle_identifier:
+        type: "string"
+      public_identifier:
+        type: "string"
+      release_type:
+        type: "integer"
+      platform:
+        type: "string"
+        enum:
+        - "iOS"
+        - "Android"
+        - "Mac Os"
+        - "Windows Phone"
+        - "Custom"
+  Apps_apps:
+    properties:
+      title:
+        type: "string"
+      bundle_identifier:
+        type: "string"
+      public_identifier:
+        type: "string"
+      device_family:
+        type: "string"
+      minimum_os_version:
+        type: "string"
+      release_type:
+        type: "integer"
+      status:
+        type: "integer"
+      platform:
+        type: "string"
+        enum:
+        - "iOS"
+        - "Android"
+        - "Mac Os"
+        - "Windows Phone"
+        - "Custom"
+  Apps:
+    properties:
+      success:
+        type: "string"
+      apps:
+        type: "array"
+        items:
+          $ref: "#/definitions/Apps_apps"

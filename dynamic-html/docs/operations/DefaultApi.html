@@ -1,0 +1,218 @@
+<div class="main-content">
+  <h2><a name=""></a></h2>
+  <p>This is the  API</p>
+
+  <h2><a name="appsGet"></a>appsGet</h2>
+  <hr>
+  <p></p>
+  <p>Gets &#x60;Apps&#x60;. </p>
+  <h3 class="section">URL</h3>
+  <code>https://rink.hockeyapp.net/api/2/apps</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="Apps"><a href="">Apps</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+  </ul>
+  <h2><a name="appsUploadPost"></a>appsUploadPost</h2>
+  <hr>
+  <p></p>
+  <p>Upload a new app</p>
+  <h3 class="section">URL</h3>
+  <code>https://rink.hockeyapp.net/api/2/apps/upload</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="App"><a href="">App</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">Ipa</span>
+      <span class="param-type">file</span>
+      
+      <p class="param-description">file data of the .ipa for iOS, .app.zip for OS X, or .apk file for Android</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">dsym</span>
+      <span class="param-type">file</span>
+      
+      <p class="param-description">file data of the .dSYM.zip file (iOS and OS X) or mapping.txt (Android); note that the extension has to be .dsym.zip (case-insensitive) for iOS and OS X and the file name has to be mapping.txt for Android.</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">notes</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">release notes as Textile or Markdown (after 5k characters note are truncated)</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">notes_type</span>
+      <span class="param-type">Integer</span>
+      
+      <p class="param-description">type of release notes. &#x60;0&#x60; for Textile, &#x60;1&#x60; for Markdown</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">notify</span>
+      <span class="param-type">Integer</span>
+      
+      <p class="param-description">notify testers (can only be set with full-access tokens). &#x60;0&#x60; to not notify, &#x60;1&#x60; to notify all testers that can install this app,  &#x60;2&#x60; to notify all testers</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">status</span>
+      <span class="param-type">Integer</span>
+      
+      <p class="param-description">download status (can only be set with full-access tokens). &#x60;1&#x60; to not allow users to download the version, &#x60;2&#x60; to make the version available for download</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">strategy</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">replace or add build with same build number. &#x60;add&#x60; to add the build as a new build to even if it has the same build number __default__, &#x60;replace&#x60; to replace to a build with the same build number</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">tags</span>
+      <span class="param-type">List(String)</span>
+      
+      <p class="param-description">restrict download to comma-separated list of tags</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">teams</span>
+      <span class="param-type">List(Integer)</span>
+      
+      <p class="param-description">restrict download to comma-separated list of team IDs</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">users</span>
+      <span class="param-type">List(Integer)</span>
+      
+      <p class="param-description">restrict download to comma-separated list of user IDs</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">mandatory</span>
+      <span class="param-type">Integer</span>
+      
+      <p class="param-description">set version as mandatory &#x60;0&#x60; for not mandatory __default__, &#x60;1&#x60; for mandatory</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">release_type</span>
+      <span class="param-type">Integer</span>
+      
+      <p class="param-description">set the release type of the app. &#x60;0&#x60; for beta __default__  &#x60;1&#x60; for store &#x60;2&#x60; for alpha &#x60;3&#x60; for enterprise</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">private</span>
+      <span class="param-type">Boolean</span>
+      
+      <p class="param-description">set to &#x60;true&#x60; to enable the private download page (default is &#x60;true&#x60;)</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">owner_id</span>
+      <span class="param-type">Integer</span>
+      
+      <p class="param-description">set to the ID of your organization</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">commit_sha</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">set to the git commit sha for this build</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">build_server_url</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">set to the URL of the build job on your build server</p>
+	  </li>
+	  <li class="parameter">
+      <span class="param-in">Form: </span>
+      
+      
+      
+      
+      <span class="param-name">repository_url</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description">set to your source repository</p>
+	  </li>
+  </ul>
+</div>

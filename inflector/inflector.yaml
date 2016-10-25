@@ -1,0 +1,14 @@
+controllerPackage: com.github.panthro
+modelPackage:  io.swagger.model
+swaggerUrl: ./src/main/swagger/swagger.yaml
+modelMappings:
+  # to enable explicit mappings, use this syntax:
+  DefinitionFromSwaggerSpecification: fully.qualified.path.to.Model
+  App : io.swagger.model.App
+Apps : io.swagger.model.Apps
+AppsApps : io.swagger.model.AppsApps
+
+entityProcessors:
+  - json
+  - xml
+  - yaml
